@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160625224836) do
+ActiveRecord::Schema.define(version: 20160626151914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,34 @@ ActiveRecord::Schema.define(version: 20160625224836) do
   end
 
   add_index "despesas", ["restaurante_id"], name: "index_despesas_on_restaurante_id", using: :btree
+
+  create_table "funcionarios", force: :cascade do |t|
+    t.string   "nome"
+    t.float    "salario"
+    t.string   "endereco"
+    t.string   "cpf"
+    t.string   "tipo_funcionario"
+    t.string   "formacao_gerente"
+    t.float    "adicional_garcom"
+    t.string   "especializacao_cozinheiro"
+    t.string   "cnpj"
+    t.integer  "restaurante_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "funcionarios", ["restaurante_id"], name: "index_funcionarios_on_restaurante_id", using: :btree
+
+  create_table "mesas", force: :cascade do |t|
+    t.integer  "quantidade_cadeiras"
+    t.string   "tipo"
+    t.string   "cnpj"
+    t.integer  "restaurante_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "mesas", ["restaurante_id"], name: "index_mesas_on_restaurante_id", using: :btree
 
   create_table "pratos", force: :cascade do |t|
     t.float    "valor"
@@ -49,4 +77,6 @@ ActiveRecord::Schema.define(version: 20160625224836) do
   end
 
   add_foreign_key "despesas", "restaurantes"
+  add_foreign_key "funcionarios", "restaurantes"
+  add_foreign_key "mesas", "restaurantes"
 end

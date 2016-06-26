@@ -1,39 +1,130 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Listing Pratos</h1>
+<head>
 
-<table>
-  <thead>
-    <tr>
-      <th>Valor</th>
-      <th>Nome</th>
-      <th>Cod barras</th>
-      <th>Tipo pratob</th>
-      <th>Tipo bebida</th>
-      <th>Ml bebida</th>
-      <th>Tipo pratoc</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <tbody>
-    <% @pratos.each do |prato| %>
-      <tr>
-        <td><%= prato.valor %></td>
-        <td><%= prato.nome %></td>
-        <td><%= prato.cod_barras %></td>
-        <td><%= prato.tipo_pratoB %></td>
-        <td><%= prato.tipo_bebida %></td>
-        <td><%= prato.ml_bebida %></td>
-        <td><%= prato.tipo_pratoC %></td>
-        <td><%= link_to 'Show', prato %></td>
-        <td><%= link_to 'Edit', edit_prato_path(prato) %></td>
-        <td><%= link_to 'Destroy', prato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <title>Simple Sidebar - Start Bootstrap Template</title>
 
-<br>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<%= link_to 'New Prato', new_prato_path %>
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="http://localhost:3000/">Menu</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/restaurantes">Restaurantes</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/pratos">Pratos</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/funcionarios">Funcionários</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/consultas">Consultas</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/contato">Contato</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                      <h2>Pratos</h2>
+                        <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <!-- Table -->
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Cod barras</th>
+                              <th>Nome</th>
+                              <th>Valor</th>  
+                              <th>Bebida</th>
+                              <th>Tipo</th>
+                              <th>ml.</th>
+                              <th>Prato</th>
+                              <th colspan="3"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% @pratos.each do |prato| %>
+                              <tr>
+                                <td><%= prato.cod_barras %></td>
+                                <td><%= prato.nome %></td>
+                                <td><%= prato.valor %></td>
+                                <td><%= prato.tipo_pratoB %></td>
+                                <td><%= prato.tipo_bebida %></td>
+                                <td><%= prato.ml_bebida %></td>
+                                <td><%= prato.tipo_pratoC %></td>
+                                <td><%= link_to 'Detalhes', prato %></td>
+                                <td><%= link_to 'Editar', edit_prato_path(prato) %></td>
+                                <td><%= link_to 'Excluir', prato, method: :delete, data: {confirm: 'Você tem certeza?'} %></td>
+                              </tr>
+                            <% end %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+                    <%= link_to new_prato_path, class: 'btn btn-success' do %>
+                        <i class="glyphicon glyphicon-plus"></i> Novo Prato
+                    <% end %>
+                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Esconder Menu</a>
+            </div>   
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

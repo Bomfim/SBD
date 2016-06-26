@@ -1,0 +1,57 @@
+<%= form_for(@funcionario) do |f| %>
+  <% if @funcionario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@funcionario.errors.count, "error") %> prohibited this funcionario from being saved:</h2>
+
+      <ul>
+      <% @funcionario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :Salário %><br>
+    <%= f.text_field :salario %>
+  </div>
+  <div class="field">
+    <%= f.label :Endereço %><br>
+    <%= f.text_field :endereco %>
+  </div>
+  <div class="field">
+    <%= f.label :CPF %><br>
+    <%= f.text_field :cpf %>
+  </div>
+  <div class="field">
+    <%= f.label :Tipo %><br>
+    <%= f.text_field :tipo_funcionario %>
+  </div>
+  <div class="field">
+    <%= f.label :Formação_do_gerente %><br>
+    <%= f.text_field :formacao_gerente %>
+  </div>
+  <div class="field">
+    <%= f.label :Adicional_do_garçom %><br>
+    <%= f.text_field :adicional_garcom %>
+  </div>
+  <div class="field">
+    <%= f.label :Especialização_do_cozinheiro %><br>
+    <%= f.text_field :especializacao_cozinheiro %>
+  </div>
+  <div class="field">
+    <%= f.label :CNPJ %><br>
+    <%= f.text_field :cnpj %>
+  </div>
+  <div class="field">
+    <%= f.label :restaurante_id %><br>
+    <%= f.text_field :restaurante_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

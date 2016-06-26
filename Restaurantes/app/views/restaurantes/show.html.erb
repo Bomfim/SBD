@@ -1,24 +1,121 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
 
-<p>
-  <strong>Cnpj:</strong>
-  <%= @restaurante.cnpj %>
-</p>
+<head>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @restaurante.nome %>
-</p>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<p>
-  <strong>Endereco:</strong>
-  <%= @restaurante.endereco %>
-</p>
+    <title>Simple Sidebar - Start Bootstrap Template</title>
 
-<p>
-  <strong>Cidade:</strong>
-  <%= @restaurante.cidade %>
-</p>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<%= link_to 'Edit', edit_restaurante_path(@restaurante) %> |
-<%= link_to 'Back', restaurantes_path %>
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="http://localhost:3000/">
+                        Menu
+                    </a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/restaurantes">Restaurantes</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/pratos">Pratos</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/funcionarios">Funcionários</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/consultas">Consultas</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="http://localhost:3000/contato">Contato</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                    	<p id="notice"><%= notice %></p>
+						<p>
+						  <strong>Cnpj:</strong>
+						  <%= @restaurante.cnpj %>
+						</p>
+
+						<p>
+						  <strong>Nome:</strong>
+						  <%= @restaurante.nome %>
+						</p>
+
+						<p>
+						  <strong>Endereco:</strong>
+						  <%= @restaurante.endereco %>
+						</p>
+
+						<p>
+						  <strong>Cidade:</strong>
+						  <%= @restaurante.cidade %>
+						</p>
+						<p>
+						  <strong>Telefone(s):</strong>
+						  <%=  %>
+						</p>
+
+						<%= link_to 'Editar', edit_restaurante_path(@restaurante) %> |
+						<%= link_to 'Voltar', restaurantes_path %>
+                    </div>
+                </div>
+                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Esconder Menu</a>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
