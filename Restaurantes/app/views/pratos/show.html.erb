@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @prato.valor %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @prato.nome %>
+</p>
+
+<p>
+  <strong>Cod barras:</strong>
+  <%= @prato.cod_barras %>
+</p>
+
+<p>
+  <strong>Tipo pratob:</strong>
+  <%= @prato.tipo_pratoB %>
+</p>
+
+<p>
+  <strong>Tipo bebida:</strong>
+  <%= @prato.tipo_bebida %>
+</p>
+
+<p>
+  <strong>Ml bebida:</strong>
+  <%= @prato.ml_bebida %>
+</p>
+
+<p>
+  <strong>Tipo pratoc:</strong>
+  <%= @prato.tipo_pratoC %>
+</p>
+
+<%= link_to 'Edit', edit_prato_path(@prato) %> |
+<%= link_to 'Back', pratos_path %>

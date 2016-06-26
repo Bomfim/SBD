@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609225225) do
+ActiveRecord::Schema.define(version: 20160625224836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "despesas", force: :cascade do |t|
+    t.string   "nome"
+    t.float    "valor"
+    t.date     "vencimento"
+    t.integer  "restaurante_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "despesas", ["restaurante_id"], name: "index_despesas_on_restaurante_id", using: :btree
+
+  create_table "pratos", force: :cascade do |t|
+    t.float    "valor"
+    t.string   "nome"
+    t.integer  "cod_barras"
+    t.string   "tipo_pratoB"
+    t.string   "tipo_bebida"
+    t.string   "ml_bebida"
+    t.string   "tipo_pratoC"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "restaurantes", force: :cascade do |t|
     t.string   "cnpj"
@@ -25,4 +48,5 @@ ActiveRecord::Schema.define(version: 20160609225225) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "despesas", "restaurantes"
 end

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pratos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Nome</th>
+      <th>Cod barras</th>
+      <th>Tipo pratob</th>
+      <th>Tipo bebida</th>
+      <th>Ml bebida</th>
+      <th>Tipo pratoc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pratos.each do |prato| %>
+      <tr>
+        <td><%= prato.valor %></td>
+        <td><%= prato.nome %></td>
+        <td><%= prato.cod_barras %></td>
+        <td><%= prato.tipo_pratoB %></td>
+        <td><%= prato.tipo_bebida %></td>
+        <td><%= prato.ml_bebida %></td>
+        <td><%= prato.tipo_pratoC %></td>
+        <td><%= link_to 'Show', prato %></td>
+        <td><%= link_to 'Edit', edit_prato_path(prato) %></td>
+        <td><%= link_to 'Destroy', prato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prato', new_prato_path %>
