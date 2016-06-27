@@ -1,5 +1,7 @@
 class FuncionariosController < ApplicationController
-  before_action :set_funcionario, only: [:show, :edit, :update, :destroy]
+  
+  http_basic_authenticate_with name: "Admin", password: "admin", except: [:index, :show]
+
 
   # GET /funcionarios
   # GET /funcionarios.json

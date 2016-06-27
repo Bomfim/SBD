@@ -1,5 +1,7 @@
 class RestaurantesController < ApplicationController
-  before_action :set_restaurante, only: [:show, :edit, :update, :destroy]
+  
+  http_basic_authenticate_with name: "Admin", password: "admin", except: [:index, :show]
+
 
   # GET /restaurantes
   # GET /restaurantes.json

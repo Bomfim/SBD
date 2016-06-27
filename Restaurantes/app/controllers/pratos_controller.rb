@@ -1,4 +1,7 @@
 class PratosController < ApplicationController
+  
+  http_basic_authenticate_with name: "Admin", password: "admin", only: :destroy
+
   before_action :set_prato, only: [:show, :edit, :update, :destroy]
 
   # GET /pratos

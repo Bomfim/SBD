@@ -64,8 +64,22 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1>Consultas</h1>
-                            
-                        <p><%= Prato.average("valor")%></p>                  
+                        <h3>Média de preço dos pratos:</h3>
+                        <em><%= Prato.average("valor")%></em>
+                                
+                        <h3>Especialização do Chef:</h3>
+                        <form>
+                            <input type="nome" name="nome">
+                            <input type="submit" value="Consultar" />
+                        </form>
+
+                        <!--p><% @cozinheiros = Funcionario.select(:nome).where(tipo_funcionario: 'Chef')%></p-->
+                        
+                        <form>
+                        <h3>Quantos funcionários possui o restaurante na cidade:</h3>
+                            <input type="nome" name="nome">
+                            <input type="submit" value="Consultar" />
+                        </form>
                     </div>
                 </div>
                 <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Esconder Menu</a>
